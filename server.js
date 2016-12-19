@@ -32,6 +32,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({error: 'Something went wrong'}).end();
 });
 
-const listener = app.listen(process.env.PORT, function () {
-  logger.info('Your app is listening on port ' + listener.address().port);
+const port = process.env.PORT || 8080;
+
+const listener = app.listen(port, function () {
+  logger.info(`Your app is listening on port ${port}`);
 });
