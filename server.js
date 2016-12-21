@@ -2,6 +2,10 @@
 
 const express = require('express');
 const morgan = require('morgan');
+// this will load our .env file if we're
+// running locally. On Gomix, .env files
+// are automatically loaded.
+require('dotenv').config();
 
 const {logger} = require('./utilities/logger');
 // these are custom errors we've created
