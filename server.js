@@ -2,6 +2,10 @@
 
 const express = require('express');
 const morgan = require('morgan');
+// this will load our .env file if we're
+// running locally. On Gomix, .env files
+// are automatically loaded.
+require('dotenv').config();
 
 const {logger} = require('./utilities/logger');
 // these are custom errors we've created
@@ -32,6 +36,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({error: 'Something went wrong'}).end();
 });
 
-const listener = app.listen(process.env.PORT, function () {
-  logger.info('Your app is listening on port ' + listener.address().port);
+const port = process.env.PORT || 8080;
+
+const listener = app.listen(port, function () {
+  logger.info(`Your app is listening on port ${port}`);
 });
