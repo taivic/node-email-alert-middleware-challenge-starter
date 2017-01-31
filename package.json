@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "node-email-alert-middleware-challenge-starter",
   "version": "0.0.1",
-  "description": "",
+  "description": "Starter files for emaill alert middleware challenge\r ===================================================",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -15,12 +15,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Thinkful-Ed/node-email-alert-middleware-challenge-solution"
+    "url": "git+https://github.com/Thinkful-Ed/node-email-alert-middleware-challenge-solution.git"
   },
   "keywords": [
     "node",
     "hyperdev",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Thinkful-Ed/node-email-alert-middleware-challenge-solution/issues"
+  },
+  "homepage": "https://github.com/Thinkful-Ed/node-email-alert-middleware-challenge-solution#readme",
+  "author": ""
 }

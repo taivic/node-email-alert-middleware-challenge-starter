@@ -8,14 +8,15 @@ const {logger} = require('./utilities/logger');
 const {SMTP_URL} = process.env;
 
 
-// `emailData` is an object that looks like this:
-// {
-//  from: "foo@bar.com",
-//  to: "bizz@bang.com, marco@polo.com",
-//  subject: "Hello world",
-//  text: "Plain text content",
-//  html: "<p>HTML version</p>"
-// }
+//`emailData` is an object that looks like this:
+/*const emailData = {
+	from: "vicky.yen.tai@gmail.com",
+	to: "vicky.yen.tai@gmail.com",
+	subject: "ALERT: a BarError occurred",
+	text: "Plain text content",
+	html: "<p>HTML version</p>"
+}*/
+
 const sendEmail = (emailData, smtpUrl=SMTP_URL) => {
   const transporter = nodemailer.createTransport(SMTP_URL);
   logger.info(`Attempting to send email from ${emailData.from}`);

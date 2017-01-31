@@ -10,7 +10,7 @@ require('dotenv').config();
 const {logger} = require('./utilities/logger');
 // these are custom errors we've created
 const {FooError, BarError, BizzError} = require('./errors');
-
+const {emailData, sendEmail} = require('./emailer')
 const app = express();
 
 // this route handler randomly throws one of `FooError`,
@@ -26,6 +26,23 @@ app.use(morgan('common', {stream: logger.stream}));
 
 // for any GET request, we'll run our `russianRoulette` function
 app.get('*', russianRoulette);
+
+const fooBarBizz => (err, req, res, next) {
+	if (err instanceOf FooError || err instanceOf BarError) {
+		logger.info("There is a FooError or BarError")
+		const emailData = {
+			from: "ALERT_FROM_EMAIL",
+			to: "ALERT_TO_EMAIL",
+			subject: "ALERT: FooError or BarError",
+			text: "There is an Error",
+			html: "<p>HTML version</p>"
+		}
+		sendEmail(emailData);
+		next();
+	}
+};
+
+app.use(fooBarBizz);
 
 // YOUR MIDDLEWARE FUNCTION should be activated here using
 // `app.use()`. It needs to come BEFORE the `app.use` call
